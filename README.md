@@ -46,4 +46,4 @@ ESLint warnings can be shown in VS Code by installing the **ESLint** extension.
 
 ## Activity Directions
 
-Examine the commented Python code in `src/index.py`. Write equivalent JavaScript code in `src/index.js` to accomplish the same tasks.
+Examine the commented Python code in `src/index.js` and write equivalent JavaScript code to accomplish the same tasks.
