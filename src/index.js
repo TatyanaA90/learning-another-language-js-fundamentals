@@ -27,6 +27,29 @@ let dog = { name: 'Sprinkles', age: 3 };
 dog['is.friendly'] = true;
 console.log(dog);
 
+
+// animals = ["tiger", "panda", "raccoon"]
+// animals.append("opossum")
+
+//const animals = ['tiger', 'panda', 'raccoon'];
+console.log({ animals });
+animals.push('opossum');  // we can push even though animals is const!
+console.log({ animals });
+
+// dog = {"name": "Sprinkles", "age": 3}
+// dog["is_friendly"] = True
+
+//const dog = { name: 'Sprinkles', age: 3 };
+console.log({ dog });
+dog.isFriendly = true;  // following JS naming style
+console.log({ dog });
+
+// JS also has a Map type, though plain objects tend to be used more frequently
+const dogMap = new Map([['name', 'Sprinkles'], ['age', 3]]);
+console.log({ dogMap });
+dogMap.set('isFriendly', true);  // must use set and get, not . or [] notation
+console.log({ dogMap });
+
 //
 //
 // =================
@@ -46,13 +69,31 @@ for (let i = 0; i < num; i++) {
 for (let animal of animals) {
   console.log(animal);
 }
+for (const animal of animals) {  // NOTE: `of` not `in`
+  console.log(animal);
+}
 
+for (const i in animals) {  // NOTE: `in` not `of`
+  console.log(i);
+}
 // for k, v in dog.items():
 //    print(f'{k}: {v}')
 console.log('test');
 for (const [k, v] of Object.entries(dog)) {
   console.log(`${k} ${v}`);
 }
+
+
+//let dogMap = new Map();
+// for the Map version
+for (const k of dogMap.keys()) {
+  console.log(`${k}: ${dogMap.get(k)}`);
+}
+
+for (const pair of dogMap) {
+  console.log(`${pair[0]}: ${pair[1]}`);
+}
+
 //
 //
 // ===================================
@@ -69,22 +110,36 @@ for (const [k, v] of Object.entries(dog)) {
 //    else:
 //        return num
 
+// ES6 way: Function Expression
 const fizzbuzz = function (num) {
-  if (num % 3 == 0 && num % 5 == 0) {
+  if (num % 3 === 0 && num % 5 === 0) {
     return 'fizzbuzz';
-  } else if (num % 3 == 0) {
+  } else if (num % 3 === 0) {
     return 'fizz';
-  } else if (num % 5 == 0) {
+  } else if (num % 5 === 0) {
     return 'buzz';
   } else {
     return num;
   }
 };
 console.log(fizzbuzz(12));
+console.log(fizzbuzz(5));
 
 // Old way: Function Declaration
+// function fizzbuzz(num) {
+//   if (num % 3 === 0 && num % 5 === 0) {
+//     return 'fizzbuzz';
+//   } else if (num % 3 === 0) {
+//     return 'fizz';
+//   } else if (num % 5 === 0) {
+//     return 'buzz';
+//   } else {
+//     return num;
+//   }
+// }
 
-// ES6 way: Function Expression
+// console.log(fizzbuzz(15));
+
 //
 //
 // ======================
